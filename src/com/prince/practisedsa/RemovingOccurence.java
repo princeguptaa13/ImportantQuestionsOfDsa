@@ -17,6 +17,7 @@ public class RemovingOccurence {
             }
         }
         System.out.println(str);
+        System.out.println("Hello world");
     }
 }
 

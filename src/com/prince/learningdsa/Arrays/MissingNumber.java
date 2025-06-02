@@ -1,21 +1,23 @@
 package com.prince.learningdsa.Arrays;
 
+
+import java.util.Arrays;
+
 public class MissingNumber {
-    static int missingNumber(int [] arr){
-        int n = arr.length ;
-       for(int i = 0 ; i < n-1 ; i++){
-           for(int j = i+1 ; j < n  ; j++){
-               if(arr[i] < arr[j] && (arr[j] - arr[i]) == 1){
-                   return i;
-               }else if (arr[i] < arr[j] && (arr[j] - arr[i]) == 2){
-                   return i+1;
-               }
-           }
-       }
-       return 1 ;
+    static int missingNumber(int [] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        int totalSum = n * (n+1) / 2 ;
+        int arraySum = 0 ;
+        for(int i=0 ; i<n ; i++){
+            arraySum = arraySum + arr[i];
+        }
+        return totalSum - arraySum ;
     }
     public static void main(String[] args) {
-        int [] arr ={1 , 2 , 4};
+        int [] arr ={4 , 1 , 2 , 0};
+       // Arrays.sort(arr);
+
         int cal = missingNumber(arr);
         System.out.print(" " +cal);
     }
